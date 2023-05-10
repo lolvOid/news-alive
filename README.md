@@ -1,12 +1,6 @@
 # news-alive
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+This project is made with Vue3 + Vite + Vuetify
 
 ## Project Setup
 
