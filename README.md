@@ -1,10 +1,8 @@
 # news-alive
 
-This template should help get you started developing with Vue 3 in Vite.
-
 ## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+[VSCode](https://code.visualstudio.com/) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
 ## Customize configuration
 
@@ -38,4 +36,32 @@ npm run test:unit
 
 ```sh
 npm run lint
+```
+
+____
+
+## Dockerize Application
+
+#### Docker Build
+
+```sh
+npm run make-start
+```
+
+#### Docker Stop
+
+```sh
+npm run make-stop
+```
+
+#### Docker Clean
+
+```sh
+npm run make-clean
+```
+
+#### Docker Restart Container
+
+```sh
+npm run make-restart
 ```
