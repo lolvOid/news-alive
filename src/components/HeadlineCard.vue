@@ -1,7 +1,7 @@
 <template>
   <v-row   class="fill-height " align="stretch" id="container">
 
-    <v-col v-for="v in data" cols="12" md="4" sm="6">
+    <v-col v-for="v in data" cols="12" md="4" sm="6" lg="2" xl="2">
 
       <v-card border class=" rounded-0 mb-2 fill-height"  density="comfortable"
         :prepend-avatar="formatIcon(v.url)" :subtitle="formatDate(v.publishedAt)"
