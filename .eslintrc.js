@@ -8,7 +8,7 @@ module.exports = {
         es2021: true,
     },
     overrides: [],
-    extends: ['airbnb-base', 'plugin:vue/vue3-recommended', 'prettier'],
+    extends: ['airbnb-base', 'plugin:vue/vue3-essential', 'prettier'],
     parserOptions: {
         ecmaVersion: 12,
         sourceType: 'module',
