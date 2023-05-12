@@ -20,12 +20,12 @@
           <v-card>
 
             <v-toolbar color="white">
-              
+
               <v-toolbar-title>Filters</v-toolbar-title>
               <v-spacer></v-spacer>
               <v-toolbar-items>
                 <v-btn variant="text" icon="mdi:mdi-close" @click="dialogFilter = false">
-                  
+
                 </v-btn>
               </v-toolbar-items>
             </v-toolbar>
@@ -42,8 +42,7 @@
           </v-card>
         </v-dialog>
 
-        <v-dialog v-model="dialogHistory" scrollable fullscreen
-      :scrim="false">
+        <v-dialog v-model="dialogHistory" scrollable fullscreen :scrim="false">
           <template v-slot:activator="{ props }">
             <v-btn icon="mdi:mdi-history" v-bind="props">
             </v-btn>
@@ -52,11 +51,11 @@
 
             <v-toolbar color="white">
               <v-btn icon="mdi:mdi-chevron-left" dark @click="dialogHistory = false">
-                
+
               </v-btn>
               <v-toolbar-title>History</v-toolbar-title>
               <v-spacer></v-spacer>
-             
+
             </v-toolbar>
             <!-- <v-card-title>
 
@@ -67,29 +66,37 @@
             </v-card-title> -->
             <v-divider></v-divider>
             <v-card-text style="height: 350px;">
+              <v-row align="center" justify="center">
+                <v-col cols="12" lg="5" md="8" sm="10">
+                  <v-row>
+                    <v-col cols="12" >
+                      <v-card variant="outlined" rounded="0">
+                        <div class="d-flex flex-no-wrap justify-start">
+                          <v-avatar class="ma-3" size="125" rounded="0">
+                            <v-img src="https://dummyimage.com/100x100.jpg"></v-img>
+                          </v-avatar>
+                          <div>
+                            <v-card-title class="text-h5">
+                              Excepteur ipsum consequat incididunt
+                            </v-card-title>
 
-              <v-col cols="12" v-for="(item, index) in items" :key="index">
-                <v-card variant="outlined" flat class="rounded-0">
-                  <div class="d-flex flex-no-wrap justify-space-between">
-                    <v-avatar class="ma-3" size="100" rounded="0">
-                      <v-img src="https://dummyimage.com/100x100/dedede/000.jpg?text=Sample"></v-img>
-                    </v-avatar>
-                    <div>
-                      <v-card-title class="text-h5">
-                        Headline
-                      </v-card-title>
-                      <v-card-subtitle>Foster the People</v-card-subtitle>
-                      <v-card-actions>
-                        <v-btn variant="outlined" rounded="0">
-                          Read
-                        </v-btn>
-                      </v-card-actions>
-                    </div>
+                            <v-card-subtitle> Excepteur ipsum consequat incididunt</v-card-subtitle>
 
+                            <v-card-actions>
+                              <v-btn class="ms-2" variant="outlined" rounded="0" size="small">
+                               Read
+                              </v-btn>
+                            </v-card-actions>
+                          </div>
 
-                  </div>
-                </v-card>
-              </v-col>
+                       
+                        </div>
+                      </v-card>
+                    </v-col>
+
+                  </v-row>
+                </v-col>
+              </v-row>
 
             </v-card-text>
 
