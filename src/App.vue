@@ -1,26 +1,15 @@
 <template>
-
   <v-app id="app">
-    
-    
-      <NavBar/>
-      <v-main class="mt-2">  
-        <router-view />
-      </v-main>
-   
   
+      <router-view />
+
   </v-app>
 </template>
 
 <script>
-import NavBar from './components/NavBar.vue';
 export default {
   name: 'App',
-  components:{
-      NavBar
-  },
-  data: () => ({
-    
-  }),
+  components: {},
+  data: () => ({}),
 }
 </script>

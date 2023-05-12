@@ -28,7 +28,7 @@ export default [
       'Stephen Curry met with the media following the Golden State Warriors 121-106 victory over the Los Angeles Lakers.',
     url: 'https://www.youtube.com/watch?v=gbYB20kbK3M',
     urlToImage: 'https://i.ytimg.com/vi/gbYB20kbK3M/maxresdefault.jpg',
-    publishedAt: '2023-05-11T06:43:12Z',
+    publishedAt: '2023-05-12T06:43:12Z',
     content: null,
   },
   {
