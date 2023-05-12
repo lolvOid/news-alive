@@ -1,29 +1,27 @@
 <template>
-    <v-toolbar flat color="white" fixed  density="comfortable"
-    elevate-on-scroll>
+    <v-toolbar flat color="white" fixed density="comfortable" elevate-on-scroll>
         <v-btn icon class="hidden-xs-only" href="/">
             <v-icon icon="mdi:mdi-chevron-left" />
         </v-btn>
 
         <v-toolbar-title>Title</v-toolbar-title>
         <!-- <v-btn class="hidden-xs-only"> Edit </v-btn> -->
-        <v-dialog v-model="dialog"  transition="dialog-bottom-transition"
-        width="500px" persistent >
+        <v-dialog v-model="dialog" transition="dialog-bottom-transition" width="500px" persistent>
             <template v-slot:activator="{ props }">
-                <v-btn  class="hidden-xs-only" color="black" v-bind="props"> Edit</v-btn>
+                <v-btn class="hidden-xs-only" color="black" v-bind="props"> Edit</v-btn>
             </template>
-           
-                <v-card>
+
+            <v-card>
                 <v-card-title>
                     <span class="text-h6">Edit Title</span>
                 </v-card-title>
                 <v-card-text style="padding: 0 !important;">
                     <v-container>
-                      
 
-                                <v-textarea counter placeholder=" " :rules="rules" :model-value="value" variant="filled"
-                                    auto-grow rows="2" row-height="25" shaped></v-textarea>
-                    
+
+                        <v-textarea counter placeholder=" " :rules="rules" :model-value="value" variant="filled" auto-grow
+                            rows="2" row-height="25" shaped></v-textarea>
+
                     </v-container>
                 </v-card-text>
 
@@ -38,7 +36,7 @@
                 </v-card-actions>
             </v-card>
 
-         
+
         </v-dialog>
 
         <!-- <v-spacer></v-spacer> -->

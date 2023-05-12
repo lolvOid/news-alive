@@ -1,7 +1,7 @@
 <template>
  
     <NavBar />
-    <v-main class="mt-3">
+    <v-main class="mt-2">
 
       <v-container class="ml-auto  mr-auto pt-0 mt-0">
         <Headlines :data=headlinesData />
