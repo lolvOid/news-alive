@@ -5,16 +5,8 @@ import stack from './modules/stack';
 import visited from './modules/visited';
 import headlines from './modules/headlines';
 import sources from './modules/sources';
-const store = createStore({
-    state:{
-
-    },
-    mutations:{
-
-    },
-    actions:{
-
-    },
+export default createStore({
+    
     modules: {
         stack,
         headlines,

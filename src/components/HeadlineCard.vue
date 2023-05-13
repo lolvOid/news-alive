@@ -1,5 +1,5 @@
 <template>
-  <v-row class="fill-height mb-5" justify="start" align="stretch" id="container">
+
     <v-col v-for="v in data" cols="12" md="4" sm="6" lg="3" xl="2">
       <v-card border class="rounded-0 mb-2 fill-height" density="comfortable" :prepend-avatar="formatIcon(v.url)"
         :title="v.title" variant="text">
@@ -10,7 +10,12 @@
         </template>
         <v-card-text>
           {{ v.description ? v.description.substring(0, 100) + '... ' : '' }}
-          <router-link to="/article/1" custom v-slot="{ navigate }">
+          <router-link :to="{
+            name:'article.show',
+            params:{
+              id:v.id,
+            }
+          }" custom v-slot="{ navigate }">
             <button role="link" class="font-weight-bold"   @click="navigate">
               Read More
             </button>
@@ -24,7 +29,7 @@
         </template> -->
       </v-card>
     </v-col>
-  </v-row>
+
 </template>
 
 <script>
@@ -32,10 +37,13 @@ import moment from 'moment'
 export default {
   name: 'HeadlineCard',
   props: ['data'],
+  
+
   data() {
     return {}
   },
   methods: {
+  
     formatDate(date) {
       return moment(date).format('DD/MM/YYYY')
     },
@@ -68,6 +76,7 @@ export default {
       return format
     },
     formatIcon(url = '') {
+ 
       const origin = new URL(url).origin
 
       return `https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${origin}&size=128`
