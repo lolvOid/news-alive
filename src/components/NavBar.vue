@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar color="#fff" flat density="comfortable" fixed>
+  <v-app-bar  color="#fff" flat density="comfortable" fixed >
     <template v-slot:title>
       <router-link
         to="/"
@@ -10,6 +10,7 @@
     </template>
 
     <v-spacer></v-spacer>
+    <v-btn icon="mdi:mdi-magnify" @click="$emit('onSearchClicked',true)"></v-btn>
     <v-dialog v-model="dialogFilter" scrollable width="auto">
       <template v-slot:activator="{ props }">
         <v-btn icon="mdi:mdi-filter-variant" v-bind="props"> </v-btn>
@@ -101,75 +102,26 @@
       </v-card>
     </v-dialog>
 
-    <template v-slot:extension>
-      <v-container>
-        <v-row align="center" justify="center">
-          <v-col cols="12" md="8" lg="6">
-            <v-text-field
-              :loading="loading"
-              density="compact"
-              variant="outlined"
-              label="Search News, Articles, Headlines"
-              flat
-              clearable
-              prepend-inner-icon="mdi:mdi-magnify"
-              single-line
-              hide-details
-              @input="(e) => this.$emit('onsearch', e.target.value)"
-              hint="www.example.com/page"
-            persistent-hint
-            ></v-text-field>
-          </v-col>
-        </v-row>
-      </v-container>
-    </template>
+   
   </v-app-bar>
+ 
 </template>
 <style type="css">
-.v-input__details {
-  display: none !important;
-}
 
-.v-input.expanding-search {
-  transition: 0.4s ease-out;
-}
 
-.v-input.expanding-search {
-  max-width: 100% !important;
-}
-
-.v-input.expanding-search.closed {
-  max-width: 50px !important;
-}
-
-.v-field--variant-filled .v-field__overlay {
-  background-color: transparent !important;
-}
-
-.v-input.expanding-search.closed .v-field__outline {
-  opacity: 0 !important;
-}
-
-.v-input.expanding-search .v-field__outline {
-  opacity: 1 !important;
-  transition: 0.4s ease-out;
-}
 </style>
 <script>
 export default {
   name: 'NavBar',
-  emits: ['onfilter', 'onsearch'],
+  emits: ['onfilter', 'onSearchClicked'],
   props: ['sources'],
   data() {
     return {
-      loaded: false,
-      loading: false,
-      searchText: null,
-      searchBoxClosed: true,
+
       items: this.sources,
       dialogHistory: false,
       dialogFilter: false,
-      swapBar: false,
+      
     }
   },
 

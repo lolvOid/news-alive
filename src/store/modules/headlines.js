@@ -1,6 +1,9 @@
 import axios from 'axios'
-const API_KEY = 'cf892909912948a3b7a76644511b39d2'
-const API_URL = 'https://newsapi.org/v2'
+
+
+const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
+const API_URL = import.meta.env.VITE_NEWS_API_URL;
+
 export default {
   mutations: {
     SET_HEADLINES(state, headlines) {

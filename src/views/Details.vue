@@ -1,66 +1,5 @@
 <template>
-  <v-toolbar
-    flat
-    color="white"
-    fixed
-    density="comfortable"
-    elevate-on-scroll
-   
-  >
-    <v-btn
-      icon="mdi:mdi-chevron-left"
-      class="hidden-xs-only"
-      @click="$router.back()"
-    >
-    </v-btn>
-
-    <v-toolbar-title v-if="article">{{ article.title }}</v-toolbar-title>
-    <!-- <v-btn class="hidden-xs-only"> Edit </v-btn> -->
-    <v-dialog
-      v-model="dialog"
-      transition="dialog-bottom-transition"
-      width="500px"
-      persistent
-    >
-      <template v-slot:activator="{ props }">
-        <v-btn class="hidden-xs-only" color="black" v-bind="props"> Edit</v-btn>
-      </template>
-
-      <v-card>
-        <v-card-title>
-          <span class="text-h6">Edit Title</span>
-        </v-card-title>
-        <v-card-text style="padding: 0 !important">
-          <v-container>
-            <v-textarea
-            v-if="article"
-              counter
-              placeholder=" "
-              :rules="rules"
-              :model-value='article.title'
-              variant="filled"
-              auto-grow
-              rows="2"
-              row-height="25"
-              shaped
-            ></v-textarea>
-          </v-container>
-        </v-card-text>
-
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="black" variant="text" @click="dialog = false">
-            Close
-          </v-btn>
-          <v-btn color="black" variant="text" @click="dialog = false">
-            Save
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-
-    <!-- <v-spacer></v-spacer> -->
-  </v-toolbar>
+ 
   <v-main class="mt-0">
     <v-container>
       <v-row align="center" justify="center">
@@ -136,6 +75,7 @@ export default {
       return parseInt(this.$route.params.id)
     },
   },
+  
   methods: {
     formatDate(date) {
       return moment(date).format('DD/MM/YYYY-HH:MM A')
