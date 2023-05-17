@@ -20,13 +20,17 @@
     "@mdi/font": "5.9.55",
     "@vue/eslint-config-airbnb": "^7.0.0",
     "axios": "^1.4.0",
+    "crypto-js": "^4.1.1",
     "moment": "^2.29.4",
     "roboto-fontface": "*",
     "sass": "^1.62.1",
+    "uuid": "^9.0.0",
     "vue": "^3.2.47",
+    "vue-flag-icon": "^2.1.0",
     "vue-router": "^4.1.6",
     "vuetify": "^3.2.3",
     "vuex": "^4.1.0",
+    "vuex-persistedstate": "^4.1.0",
     "webfontloader": "^1.0.0"
   },
   "devDependencies": {
