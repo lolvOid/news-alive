@@ -330,7 +330,7 @@ export default {
         },
     },
     watch: {
-        model(v) { },
+        model() { },
         $route(route) {
             this.currentQuery = route.query
         },

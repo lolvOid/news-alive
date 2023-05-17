@@ -71,7 +71,8 @@ export default {
     computed: {
         ...mapGetters(['getAllVisited']),
         allVisited() {
-            return this.getAllVisited
+            const sorted = this.getAllVisited.sort((a,b)=>b.updatedAt-a.updatedAt)
+            return sorted;
         },
     },
 
