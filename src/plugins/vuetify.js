@@ -10,7 +10,7 @@ import {aliases,fa} from "vuetify/iconsets/fa"
 import { createVuetify } from 'vuetify'
 
 export default createVuetify(
-  {
+  {  
     components,
     directives,
     icons:{
