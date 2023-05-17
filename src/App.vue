@@ -1,79 +1,162 @@
 <template>
-  <v-app id="app">
-    <NavBar :sources="sources" @onfilter="onFilter" @on-search-clicked="setSearchable"
-      v-if="!searchable && currentRoutePath === 'home'" />
-    <SearchBar v-if="searchable && currentRoutePath === 'home'" @on-search-clicked="setSearchable" @onsearch="onSearch"
-      :sources="sources" @onfilter="onFilter" />
-    <HeadlineToolbar v-if="currentRoutePath === 'article.show'"  />
-    <router-view :headlines="headlines" :key="$route.path" />
+  <v-app>
 
+    <NavigationDrawer :searchResults="headlines.length" @on-category-selected="onCategorySelected"
+      @on-country-selected="onCountrySelected" @on-source-selected="onSourceSelected" @on-search="onSearch"
+      @on-country-clear="onCountryClear" @on-source-clear="onSourceClear" @on-category-clear="onCategoryClear"
+      @on-search-focused="onFocus" @on-wrong-fetch="onWrongFetch()" :historyView="$route.name === 'home.history'"
+      :exploreView="$route.name === 'home.discover'" :homeView="$route.name === 'home'"
+      :searchView="$route.name === 'home.search'" :detailView="$route.name === 'article.show'"  :query="searchQuery" />
+
+    <router-view :articles="headlines" :currentTab="this.category" v-if="!needLoading" :highlightText="highLightText"
+      :key="$route.path" />
+
+    <Spinner v-if="needLoading" />
+
+    <Error :error="hasError" :message="errorMessage" />
+
+    <BottomTabNavigation v-if="$vuetify.display.mobile" :historyView="$route.name === 'home.history'"
+      :exploreView="$route.name === 'home.discover'" :homeView="$route.name === 'home'"
+      :searchView="$route.name === 'home.search'" />
   </v-app>
 </template>
 
 <script>
-import NavBar from './components/NavBar.vue';
-import SearchBar from './components/SearchBar.vue';
-import HeadlineToolbar from './components/HeadlineToolbar.vue';
+import { mapGetters, mapActions } from 'vuex'
 
-import { mapGetters, mapActions } from 'vuex';
+
+import Spinner from './components/Spinner.vue'
+import Error from './components/Error.vue'
+import NavigationDrawer from './components/NavigationDrawer.vue'
+import BottomTabNavigation from './components/BottomTabNavigation.vue'
 export default {
   name: 'App',
-  components: { NavBar, SearchBar, HeadlineToolbar },
+  emits:["updateQuery"],
+  components: {
+    NavigationDrawer,
+    
+    Spinner,
+    Error,
+    BottomTabNavigation,
+  },
   data() {
     return {
-      filterId: "",
-      query: "",
-      searchable: false
-
+      country: this.$route.name === 'home' ? 'us' : '',
+      queryText: '',
+      category: this.$route.name === 'home.discover' ? 'business' : '',
+      sources: '',
+      highLightText:'',
+      searchQuery: {}
     }
   },
   computed: {
-    ...mapGetters([
-      'allHeadlines',
-      'allSources']),
+    ...mapGetters(['allHeadlines', 'isLoading', 'error']),
+    hasError() {
+      return this.error != ''
+    },
     headlines() {
-      if (this.filterId) {
-        return this.allHeadlines.filter((h) => h.source.id === this.filterId)
+      if (this.sources) {
+        return this.allHeadlines.filter((h) => h.source.id === this.sources)
       }
-      return this.allHeadlines;
+      return this.allHeadlines
     },
-    sources() {
-      return this.allSources;
+    errorMessage() {
+      return this.error
     },
-    currentRoutePath() {
-
-      return this.$route.name;
-    }
+    needLoading() {
+      return this.isLoading
+    },
 
   },
   methods: {
-    ...mapActions(['fetchHeadlines', 'fetchHeadlinesBySearch']),
-    onFilter(value) {
-      this.filterId = value;
-
+    ...mapActions([
+      'fetchHeadlines',
+      'searchHeadlines',
+      'fetchHeadlinesWrong',
+    ]),
+    onWrongFetch() {
+      return this.fetchHeadlinesWrong()
+    },
+    onCategorySelected(val) {
+      this.category = val;
+      this.updateURLQuery();
+    },
+    onSourceSelected(val) {
+      this.sources = val;
+      this.updateURLQuery();
+    },
+    onCountrySelected(val) {
+      this.country = val;
+      console.log(val)
+      this.updateURLQuery();
+    },
+    onCategoryClear(val) {
+      this.category = val;
+      this.updateURLQuery();
+    },
+    onSourceClear(val) {
+      this.sources = val;
+      this.updateURLQuery();
+    },
+    onCountryClear(val) {
+      this.country = 'us';
+      this.updateURLQuery();
+    },
+    onSearch(val) {
+      this.queryText = val;
+      this.updateURLQuery();
+    
+    },
+    onFocus() {
+      this.updateURLQuery();
+      this.$router.push({ name:'home.search', query: this.searchQuery });
+    },
+    updateURLQuery() {
+    const query = {
+        category: this.category,
+        sources: this.sources,
+        country: this.country,
+        q: this.queryText,
+      };
+      
+      this.searchQuery= query;
+      
+      this.$router.push({ name:this.$route.name,query });
+      this.$emit('update-query', this.searchQuery);
+      this.searchHeadlines(query);
+       
     },
 
-    onSearch(value) {
+  },
 
-      this.query = value;
-      this.filterId = "";
-      this.fetchHeadlinesBySearch(this.query);
-
+  created() {
+    const defaultQuery = {
+      
+    };
+    // if (!this.$route.query.country || !this.$route.query.category) {
+    //   this.$router.replace({ name: 'home', query: defaultQuery });
+    // } else {
+      this.category = this.$route.query.category;
+      this.sources = this.$route.query.sources;
+      this.country = this.$route.query.country?this.$route.query.country:"us";
+      this.queryText = this.$route.query.query;
+      
+      this.$router.push({ name:'home.search', query: this.searchQuery });
+ 
+  },
+  watch: {
+    searchQuery(val) {
+      this.highLightText = val.q != " "?val.q:"";
     },
-    setSearchable(value) {
-
-      this.searchable = value;
-
-
-    }
+    $route: {
+      handler(route) {
+        
+        this.searchHeadlines(route.query);
+       
+        
+      },
+      immediate: true,
+    },
   },
-
-  mounted() {
-    this.hidden = false;
-    this.fetchHeadlines();
-
-
-  },
-
 }
 </script>
