@@ -5,7 +5,7 @@
         <v-row align-center="start" justify="center">
           <v-col cols="12" lg="8" xl="8">
             <v-card flat v-if="!articles.length">
-              <v-card-title>  </v-card-title>
+              <v-card-title> </v-card-title>
             </v-card>
             <Headlines v-else :data="articles" :highlightText="highlightText" />
           </v-col>
@@ -16,8 +16,9 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import Headlines from '../components/Headlines.vue'
 import { useDisplay } from 'vuetify/lib/framework.mjs'
+import Headlines from '../components/Headlines.vue'
+
 export default {
   name: 'SearchView',
   components: {

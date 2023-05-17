@@ -13,15 +13,13 @@
 </template>
 
 <script>
-
 import Headlines from '../components/Headlines.vue'
 
 export default {
   name: 'HomeView',
   components: {
-    Headlines
+    Headlines,
   },
   props: ['articles', 'highlightText'],
-
 }
 </script>

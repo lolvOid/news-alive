@@ -29,8 +29,8 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Headlines from '../components/Headlines.vue'
 import { useDisplay } from 'vuetify/lib/framework.mjs'
+import Headlines from '../components/Headlines.vue'
 
 export default {
   name: 'SearchView',

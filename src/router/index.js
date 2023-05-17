@@ -1,5 +1,8 @@
-import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
-
+import {
+  createRouter,
+  createWebHashHistory,
+  createWebHistory,
+} from 'vue-router'
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -10,17 +13,15 @@ const router = createRouter({
       beforeEnter: (to, from, next) => {
         const defaultQuery = {
           country: 'us',
-        };
-  
-        if (
-          to.query.country === defaultQuery.country 
-        ) {
-          next(); // Allow navigation without redirection
+        }
+
+        if (to.query.country === defaultQuery.country) {
+          next() // Allow navigation without redirection
         } else {
-          next({ name: 'home', query: defaultQuery }); // Redirect to same route with default query parameters
+          next({ name: 'home', query: defaultQuery }) // Redirect to same route with default query parameters
         }
       },
-      component: ()=>import('@/views/HomeView.vue'),
+      component: () => import('@/views/HomeView.vue'),
       props: true,
     },
     {
@@ -29,19 +30,19 @@ const router = createRouter({
       beforeEnter: (to, from, next) => {
         const defaultQuery = {
           country: 'us',
-          category:'business'
-        };
-  
+          category: 'business',
+        }
+
         if (
           to.query.country === defaultQuery.country &&
           to.query.category === defaultQuery.category
         ) {
-          next(); // Allow navigation without redirection
+          next() // Allow navigation without redirection
         } else {
-          next({ name: 'home.discover', query: defaultQuery }); // Redirect to same route with default query parameters
+          next({ name: 'home.discover', query: defaultQuery }) // Redirect to same route with default query parameters
         }
       },
-      component: ()=>import('@/views/ExploreView.vue'),
+      component: () => import('@/views/ExploreView.vue'),
       props: true,
     },
     {
@@ -50,38 +51,33 @@ const router = createRouter({
       beforeEnter: (to, from, next) => {
         const defaultQuery = {
           country: 'us',
-        };
-  
-        if (
-          to.query.country === defaultQuery.country 
-        
-        ) {
-          next(); // Allow navigation without redirection
+        }
+
+        if (to.query.country === defaultQuery.country) {
+          next() // Allow navigation without redirection
         } else {
-          next({ name: 'home.search', query: defaultQuery }); // Redirect to same route with default query parameters
+          next({ name: 'home.search', query: defaultQuery }) // Redirect to same route with default query parameters
         }
       },
-      component: ()=>import('@/views/SearchView.vue'),
+      component: () => import('@/views/SearchView.vue'),
       props: true,
     },
     {
       path: '/history',
       name: 'home.history',
-      component: ()=>import('@/views/HistoryView.vue'),
+      component: () => import('@/views/HistoryView.vue'),
       props: true,
     },
     {
       path: '/article/:id',
       name: 'article.show',
-      component: ()=>import('@/views/Details.vue')
-      ,
+      component: () => import('@/views/Details.vue'),
     },
     {
       path: '/:pathMatch(.*)*',
       name: '404Error',
-      component:()=>import('@/views/404Error.vue')
-
-    }
+      component: () => import('@/views/404Error.vue'),
+    },
   ],
 })
 

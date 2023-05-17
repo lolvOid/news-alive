@@ -5,7 +5,7 @@ export default {
   mutations: {
     CREATE_COUNTRIES(state, data) {
       const newData = data.map((code) => ({
-        id:code,
+        id: code,
         name: new Intl.DisplayNames(['en'], { type: 'region' }).of(
           code.toLocaleUpperCase()
         ),
@@ -26,7 +26,7 @@ export default {
         'ua',
         'th',
         'au',
-        'sg', 
+        'sg',
         'gb',
         'ch',
         'ru',
