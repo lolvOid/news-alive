@@ -11,7 +11,7 @@ export default{
             <v-row align="center" justify="center">
                 <v-col cols="12">
                     <div class="text-h4 text-center">
-                        Oops! Something wrong.
+                       404 Error! the page is not found on our website.
                     </div>
                 </v-col>
             </v-row>
