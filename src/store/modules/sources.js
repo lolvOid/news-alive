@@ -7,6 +7,7 @@ const API_URL = import.meta.env.VITE_NEWS_API_URL
 export default {
   mutations: {
     SET_SOURCES(state, sources) {
+      // Mutation to set the sources of headlines
       const sourcesWithIcons = sources.map((e) => {
         const { origin } = new URL(e.url)
         const icon = `https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${origin}&size=128`
@@ -25,11 +26,12 @@ export default {
     },
   },
   state: {
-    sources: [],
+    sources: [], // Array to store the sources of headlines
   },
   getters: {
-    allSources: (state) => state.sources,
+    allSources: (state) => state.sources, // Getter to retrieve all sources of headlines
     getSource: (state) => (value) => {
+      // Getter to retrieve a specific source of headlines by value
       if (!value) {
         return state.sources
       }
@@ -39,6 +41,7 @@ export default {
       })
     },
     filteredSources: (state) => (value) => {
+      // Getter to retrieve filtered sources of headlines based on value
       if (!value) {
         return state.sources
       }
@@ -50,6 +53,7 @@ export default {
   },
   actions: {
     async fetchSources({ commit }) {
+      // Action to fetch the sources of headlines
       try {
         const res = await api.get(`${API_URL}/sources?apiKey=${API_KEY}`)
         commit('SET_SOURCES', res.data.sources)

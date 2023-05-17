@@ -13,6 +13,7 @@
               <v-card v-if="v" rounded="lg" elevation="1" variant="elevated">
                 <div class="d-flex align-stretch justify-space-between">
                   <v-col cols="6" sm="8" md="8" lg="8" xl="8">
+                    <!-- Display article title -->
                     <v-card-title class="pa-0 text-subtitle">
                       {{ v.title }}...
                     </v-card-title>
@@ -20,6 +21,7 @@
                     <v-card-text class="text-caption pa-0" v-if="v.description"
                       >{{ v.description.substring(0, 60) }}...</v-card-text
                     >
+                    <!-- Display truncated article description -->
 
                     <v-card-actions class="pa-0">
                       <v-btn
@@ -33,12 +35,14 @@
                           },
                         }"
                       >
+                        <!-- Button to navigate to the article again -->
                         Read again
                       </v-btn>
                     </v-card-actions>
                   </v-col>
 
                   <div class="pa-2">
+                    <!-- Display article image -->
                     <v-avatar size="150" rounded="0">
                       <v-img :src="v.urlToImage" cover></v-img>
                     </v-avatar>
@@ -58,7 +62,7 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: 'HistoryView',
-
+  // Method to handle deactivating the view
   methods: {
     onDeactivate() {
       this.dialog = false
@@ -68,6 +72,8 @@ export default {
   },
   computed: {
     ...mapGetters(['getAllVisited']),
+    // Retrieve all visited articles and sort them by the updatedAt timestamp in descending order
+
     allVisited() {
       const sorted = this.getAllVisited.sort(
         (a, b) => b.updatedAt - a.updatedAt

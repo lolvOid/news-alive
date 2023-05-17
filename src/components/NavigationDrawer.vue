@@ -395,7 +395,6 @@
     </v-container>
   </v-main>
 </template>
-
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import FiltersDialog from './FiltersDialog.vue'
@@ -404,6 +403,7 @@ export default {
   name: 'NavigationDrawer',
   components: { FiltersDialog },
 
+  // Define props that will be passed to the component
   props: [
     'homeView',
     'exploreView',
@@ -413,6 +413,8 @@ export default {
     'detailView',
     'query',
   ],
+
+  // Define events that will be emitted by the component
   emits: [
     'onSearch',
     'onSearchFocused',
@@ -424,6 +426,8 @@ export default {
     'onSourceClear',
     'onWrongFetch',
   ],
+
+  // Initialize component data
   data() {
     return {
       drawer: false,
@@ -437,6 +441,8 @@ export default {
       currentQuery: this.query,
     }
   },
+
+  // Define component methods
   methods: {
     openFilterDialog() {
       this.filterDialog = true
@@ -461,6 +467,8 @@ export default {
       this.$emit('onSourceClear', this.selectedSource)
     },
   },
+
+  // Define computed properties
   computed: {
     ...mapGetters([
       'getCountries',
@@ -500,6 +508,8 @@ export default {
       return this.countries.find((e) => e.id === this.currentQuery.country)
     },
   },
+
+  // Watch for changes in data or properties
   watch: {
     model() {},
     $route(route) {
@@ -523,6 +533,8 @@ export default {
       this.$emit('onSourceSelected', val)
     },
   },
+
+  // Lifecycle hook: created
   created() {
     if (this.$route.name === 'home.discover' && this.selectedCategory === '')
       this.selectedCategory = 'business'
@@ -530,6 +542,7 @@ export default {
   },
 }
 </script>
+
 <style>
 .custom-checkbox {
   display: none;

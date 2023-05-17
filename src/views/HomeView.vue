@@ -4,6 +4,7 @@
       <v-container class="ml-auto mr-auto pt-0 mt-0">
         <v-row align="center" justify="center">
           <v-col cols="12" lg="8" xl="8">
+            <!-- Render the 'Headlines' component and pass the articles and highlightText props -->
             <Headlines :data="articles" :highlightText="highlightText" />
           </v-col>
         </v-row>
@@ -20,6 +21,6 @@ export default {
   components: {
     Headlines,
   },
-  props: ['articles', 'highlightText'],
+  props: ['articles', 'highlightText'], // Declare the articles and highlightText props
 }
 </script>

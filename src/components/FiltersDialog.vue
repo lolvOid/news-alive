@@ -82,41 +82,41 @@ export default {
 
   watch: {
     filterDialog(val) {
-      this.dialog = val
+      this.dialog = val // Updates the dialog visibility when the prop value changes
     },
     selectedSource(val) {
-      this.selected = val
+      this.selected = val // Updates the selected source when the prop value changes
     },
   },
 
   mounted() {
-    const { smAndUp } = useDisplay()
-    this.display = smAndUp
+    const { smAndUp } = useDisplay() // Retrieves the current display size (e.g., small, medium, large)
+    this.display = smAndUp // Sets the display size to the obtained value
   },
 
   methods: {
     closeDialog() {
-      this.dialog = false
-      this.$emit('dialogClosed')
+      this.dialog = false // Closes the dialog
+      this.$emit('dialogClosed') // Emits the 'dialogClosed' event
     },
 
     updateSelectedSource(value) {
-      this.$emit('update:selected-source', value)
+      this.$emit('update:selected-source', value) // Emits the 'update:selected-source' event with the selected value
     },
   },
 
   computed: {
-    ...mapGetters(['allSources', 'filteredSources']),
+    ...mapGetters(['allSources', 'filteredSources']), // Maps Vuex getters to computed properties
     sources() {
-      return this.allSources
+      return this.allSources // Returns all available sources
     },
     filteredSources() {
       if (this.searchedSource) {
         return this.allSources.filter((source) =>
           source.name.toLowerCase().includes(this.searchedSource.toLowerCase())
-        )
+        ) // Filters the sources based on the searched source name
       }
-      return this.allSources
+      return this.allSources // Returns all sources if no search query is present
     },
   },
 }

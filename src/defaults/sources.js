@@ -1,3 +1,4 @@
+// Default SOURCES
 export default [
   {
     id: 'abc-news',

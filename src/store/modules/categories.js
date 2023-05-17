@@ -3,41 +3,45 @@ export default {
     categories: [],
   },
   mutations: {
-    CREATE_CATEGORIES(state, data) {
-      const categoriesIcons = [
-        'mdi:mdi-domain',
-        'mdi:mdi-youtube',
-        'mdi:mdi-earth',
-        'mdi:mdi-medical-bag',
-        'mdi:mdi-nature',
-        'mdi:mdi-dumbbell',
-        'mdi:mdi-hammer-screwdriver',
+    // Mutation to set categories with icons
+    SET_CATEGORIES(state, categories) {
+      const categoryIcons = [
+        'mdi-domain',
+        'mdi-youtube',
+        'mdi-earth',
+        'mdi-medical-bag',
+        'mdi-nature',
+        'mdi-dumbbell',
+        'mdi-hammer-screwdriver',
       ]
-      const newData = data.map((c) => ({
-        id: c,
-        name: c.charAt(0).toUpperCase() + c.slice(1).toLowerCase(),
-        icon: categoriesIcons[data.indexOf(c)],
+
+      const categoriesWithIcons = categories.map((category, index) => ({
+        id: category.toLowerCase(),
+        name: category,
+        icon: `mdi:${categoryIcons[index]}`,
       }))
 
-      state.categories = newData
+      state.categories = categoriesWithIcons
     },
   },
   getters: {
+    // Getter to retrieve categories
     getCategories: (state) => state.categories,
   },
   actions: {
+    // Action to initialize categories
     createCategories({ commit }) {
-      const category = [
-        'business',
-        'entertainment',
-        'general',
-        'health',
-        'science ',
-        'sports',
-        'technology',
+      const categories = [
+        'Business',
+        'Entertainment',
+        'General',
+        'Health',
+        'Science',
+        'Sports',
+        'Technology',
       ]
 
-      commit('CREATE_CATEGORIES', category)
+      commit('SET_CATEGORIES', categories)
     },
   },
 }

@@ -8,6 +8,7 @@
     active
     mandatory
   >
+    <!-- Home Button -->
     <v-btn
       :ripple="false"
       @click=";(toggle = 'home'), (expandList = false), (expandHistory = false)"
@@ -18,6 +19,7 @@
     >
       <v-col class="shrink">
         <v-row align="center" style="position: relative" justify="center">
+          <!-- Home Button Badge -->
           <v-scale-transition>
             <v-sheet
               color="black"
@@ -31,6 +33,7 @@
             >
             </v-sheet>
           </v-scale-transition>
+          <!-- Home Button Icon -->
           <v-icon
             style="font-size: 24px"
             icon="mdi:mdi-home"
@@ -38,8 +41,11 @@
           ></v-icon>
         </v-row>
       </v-col>
+      <!-- Home Button Text -->
       <div class="mt-1 text-caption font-weight-bold">Home</div>
     </v-btn>
+
+    <!-- Discover Button -->
     <v-btn
       :ripple="false"
       @click="
@@ -52,6 +58,7 @@
     >
       <v-col class="shrink">
         <v-row align="center" style="position: relative" justify="center">
+          <!-- Discover Button Badge -->
           <v-scale-transition>
             <v-sheet
               color="black"
@@ -65,6 +72,7 @@
             >
             </v-sheet>
           </v-scale-transition>
+          <!-- Discover Button Icon -->
           <v-icon
             style="font-size: 24px"
             icon="mdi:mdi-newspaper-variant-multiple"
@@ -73,9 +81,11 @@
           </v-icon>
         </v-row>
       </v-col>
-
+      <!-- Discover Button Text -->
       <div class="mt-1 text-caption font-weight-bold">Discover</div>
     </v-btn>
+
+    <!-- History Button -->
     <v-btn
       :ripple="false"
       @click="
@@ -90,6 +100,7 @@
     >
       <v-col class="shrink">
         <v-row align="center" style="position: relative" justify="center">
+          <!-- History Button Badge -->
           <v-scale-transition>
             <v-sheet
               color="black"
@@ -103,6 +114,7 @@
             >
             </v-sheet>
           </v-scale-transition>
+          <!-- History Button Icon -->
           <v-icon
             style="font-size: 24px"
             icon="mdi:mdi-history"
@@ -110,9 +122,11 @@
           ></v-icon>
         </v-row>
       </v-col>
+      <!-- History Button Text -->
       <div class="mt-1 text-caption font-weight-bold">History</div>
     </v-btn>
 
+    <!-- Search Button -->
     <v-btn
       :ripple="false"
       @click="
@@ -125,6 +139,7 @@
     >
       <v-col class="shrink">
         <v-row align="center" style="position: relative" justify="center">
+          <!-- Search Button Badge -->
           <v-scale-transition>
             <v-sheet
               color="black"
@@ -138,6 +153,7 @@
             >
             </v-sheet>
           </v-scale-transition>
+          <!-- Search Button Icon -->
           <v-icon
             style="font-size: 24px"
             icon="mdi:mdi-magnify"
@@ -145,6 +161,7 @@
           ></v-icon>
         </v-row>
       </v-col>
+      <!-- Search Button Text -->
       <div class="mt-1 text-caption font-weight-bold">Search</div>
     </v-btn>
   </v-bottom-navigation>

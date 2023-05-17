@@ -174,7 +174,6 @@
     @dialogClosed="editDialog = false"
   />
 </template>
-
 <script>
 import moment from 'moment'
 import EditTitleDialog from './EditTitleDialog.vue'
@@ -182,7 +181,7 @@ import EditTitleDialog from './EditTitleDialog.vue'
 export default {
   name: 'HeadlineCard',
   props: {
-    data: null,
+    data: null, // The data object containing headline information
     highlightText: {
       type: String,
       default: '',
@@ -192,41 +191,41 @@ export default {
   components: { EditTitleDialog },
   data() {
     return {
-      editDialog: false,
-      currentHeadlineId: '',
+      editDialog: false, // Controls the visibility of the EditTitleDialog component
+      currentHeadlineId: '', // Stores the ID of the current headline
       placeholderImage:
-        'https://dummyimage.com/400x300.jpg?text=Image%20Not%20Available',
+        'https://dummyimage.com/400x300.jpg?text=Image%20Not%20Available', // Placeholder image URL
     }
   },
   methods: {
     setId(value) {
-      this.currentHeadlineId = value
+      this.currentHeadlineId = value // Sets the ID of the current headline
     },
     formatHighlightText(value) {
       if (value) {
         return value.replace(
           new RegExp(this.escapeRegExp(this.highlightText), 'gim'),
           (match) => `<span class='highlight'>${match}</span>`
-        )
+        ) // Formats the highlighted text with a custom CSS class
       }
       return ''
     },
     escapeRegExp(text) {
-      return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')
+      return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&') // Escapes special characters in a regular expression
     },
     formatDate(date) {
-      return moment(date).format('DD/MM/YYYY')
+      return moment(date).format('DD/MM/YYYY') // Formats the date to 'DD/MM/YYYY' format
     },
     formatTime(time) {
-      return moment(time).format('HH:MMa')
+      return moment(time).format('HH:MMa') // Formats the time to '1h:20min AM PM' format
     },
     processedContent(content) {
       return content
         ? content.replace(/<a href="(.*?)">(.*?)<\/a>/g, '<a :href="$1">$2</a>')
-        : ''
+        : '' // Processes the content by replacing anchor tags with Vue router links
     },
     formatDuration(date) {
-      const diff = moment.duration(moment().diff(moment(date)))
+      const diff = moment.duration(moment().diff(moment(date))) // Calculates the duration between the given date and the current time
       const duration =
         diff.asMinutes() < 60
           ? `${diff.asMinutes().toFixed(0)}m`
@@ -236,8 +235,8 @@ export default {
           ? `${diff.asDays().toFixed(0)}d`
           : diff.asMonths() < 12
           ? `${diff.asMonths().toFixed(0)}mo`
-          : `${diff.asYears().toFixed(0)}y`
-      return `${duration} ago`
+          : `${diff.asYears().toFixed(0)}y` // Formats the duration based on different time units
+      return `${duration} ago` // Returns the formatted duration string
     },
   },
 }

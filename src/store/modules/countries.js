@@ -4,13 +4,15 @@ export default {
   },
   mutations: {
     CREATE_COUNTRIES(state, data) {
+      // Map the country codes to objects with id and name properties
       const newData = data.map((code) => ({
         id: code,
         name: new Intl.DisplayNames(['en'], { type: 'region' }).of(
-          code.toLocaleUpperCase()
+          code.toUpperCase()
         ),
       }))
 
+      // Update the countries state
       state.countries = newData
     },
   },
@@ -19,6 +21,7 @@ export default {
   },
   actions: {
     createCountries({ commit }) {
+      // List of country codes
       const countryCodes = [
         'us',
         'in',
@@ -40,6 +43,7 @@ export default {
         'tw',
       ]
 
+      // Trigger the mutation to create countries
       commit('CREATE_COUNTRIES', countryCodes)
     },
   },

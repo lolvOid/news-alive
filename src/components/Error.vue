@@ -1,6 +1,8 @@
 <script>
 export default {
   name: 'Error',
+
+  // Component props
   props: {
     error: {
       type: Boolean,
@@ -11,13 +13,19 @@ export default {
       default: ' Try again later!',
     },
   },
+
+  // Component data
   data() {
     return {
-      dialog: false,
+      dialog: false, // Control the visibility of the dialog
     }
   },
+
+  // Watchers
   watch: {
+    // Watch for changes in the 'error' prop
     error(value) {
+      // Update the dialog value based on the error prop
       this.dialog = value
     },
   },

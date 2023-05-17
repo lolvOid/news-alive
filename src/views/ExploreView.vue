@@ -5,6 +5,7 @@
         <v-row align="center" justify="center">
           <v-col cols="12" lg="8" xl="8">
             <v-window v-model="tab">
+              <!-- Render a v-window-item for each category -->
               <v-window-item
                 v-for="category in categories"
                 :key="category.id"
@@ -12,6 +13,7 @@
               >
                 <v-row>
                   <v-col cols="12">
+                    <!-- Render headlines component with the corresponding data and highlight text -->
                     <Headlines
                       :data="articles"
                       :highlightText="highlightText"
@@ -30,18 +32,19 @@
 <script>
 import { mapGetters } from 'vuex'
 import { useDisplay } from 'vuetify/lib/framework.mjs'
-import Headlines from '../components/Headlines.vue'
+import Headlines from '../components/Headlines.vue' // Importing the Headlines component
 
 export default {
   name: 'SearchView',
   components: {
     Headlines,
   },
-  emits: ['dialogClosed', 'onFilter'],
+  emits: ['dialogClosed', 'onFilter'], // Emitting the 'dialogClosed' and 'onFilter' events
+
   props: {
-    articles: Array,
-    highlightText: String,
-    currentTab: null,
+    articles: Array, // Prop for passing an array of articles
+    highlightText: String, // Prop for passing a string to highlight text
+    currentTab: null, // Prop for the current selected tab
     dialogFilter: {
       type: Boolean,
       default: false,
@@ -50,36 +53,37 @@ export default {
 
   data() {
     return {
-      dialog: this.dialogFilter,
-      searchText: '',
-      display: null,
-      tab: this.currentTab,
+      dialog: this.dialogFilter, // Data property for the dialog filter
+      searchText: '', // Data property for the search text
+      display: null, // Data property for the display size
+      tab: this.currentTab, // Data property for the current tab
     }
   },
   mounted() {
-    const { smAndUp } = useDisplay()
-    this.display = smAndUp
+    const { smAndUp } = useDisplay() // Get the display size using Vuetify's useDisplay utility
+    this.display = smAndUp // Set the display property based on the screen size
   },
   watch: {
     currentTab(v) {
-      this.tab = v
+      this.tab = v // Watch for changes in the currentTab prop and update the tab value
     },
   },
   computed: {
     ...mapGetters(['allSources', 'filteredSources', 'getCategories']),
     sources() {
-      return this.allSources
+      return this.allSources // Computed property returning allSources
     },
     categories() {
-      return this.getCategories
+      return this.getCategories // Computed property returning getCategories
     },
     filteredSources() {
       if (this.searchText) {
+        // If search text is provided
         return this.allSources.filter((source) =>
           source.name.toLowerCase().includes(this.searchText.toLowerCase())
         )
-      }
-      return this.allSources
+      } // Filter allSources based on search text and return filtered results
+      return this.allSources // If no search text, return allSources as it is
     },
   },
 }

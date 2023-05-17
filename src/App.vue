@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <!-- The navigation drawer component -->
     <NavigationDrawer
       :searchResults="headlines.length"
       @on-category-selected="onCategorySelected"
@@ -18,7 +19,7 @@
       :detailView="$route.name === 'article.show'"
       :query="searchQuery"
     />
-
+    <!-- The router view component for rendering articles -->
     <router-view
       :articles="headlines"
       :currentTab="this.category"
@@ -26,9 +27,9 @@
       :highlightText="highLightText"
       :key="$route.path"
     />
-
+    <!-- The spinner component for indicating loading state -->
     <Spinner v-if="needLoading" />
-
+    <!-- The bottom tab navigation component for mobile view -->
     <Error :error="hasError" :message="errorMessage" />
 
     <BottomTabNavigation
@@ -134,7 +135,7 @@ export default {
       }
 
       this.searchQuery = query
-
+      // Update the route and emit the updated query
       this.$router.push({ name: this.$route.name, query })
       this.$emit('update-query', this.searchQuery)
       this.searchHeadlines(query)
@@ -146,9 +147,9 @@ export default {
     // if (!this.$route.query.country || !this.$route.query.category) {
     //   this.$router.replace({ name: 'home', query: defaultQuery });
     // } else {
-    this.category = this.$route.query.category
-    this.sources = this.$route.query.sources
-    this.country = this.$route.query.country ? this.$route.query.country : 'us'
+    this.category = this.$route.query.category // Set the category based on the route query
+    this.sources = this.$route.query.sources // Set the sources based on the route query
+    this.country = this.$route.query.country ? this.$route.query.country : 'us' // Set the country based on the route query, default to 'us'
     this.queryText = this.$route.query.query
 
     this.$router.push({ name: 'home.search', query: this.searchQuery })

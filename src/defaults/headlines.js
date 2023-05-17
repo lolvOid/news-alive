@@ -1,3 +1,4 @@
+// DEFAULT HEADLINES
 export default [
   {
     source: {
