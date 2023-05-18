@@ -136,7 +136,7 @@ By following the Material Design guidelines, the Application's UI conforms to a 
 *   **Color Scheme**
 *   **Motion and Transitions**
 
-First, UI Wireframe was created with [Vuetify UIKit](https://vuetifyjs.com/en/resources/ui-kits/) in [Figma](https://www.figma.com/), then implemented in development.
+First, UI [Wireframe](https://www.figma.com/file/v6re4A7rVuddR5bdojw4vc/ALIVE-NEWS-UI-Frame?type=design&node-id=44%3A10065&t=8W6ZJJvx9k4B0o2s-1) was created with [Vuetify UIKit](https://vuetifyjs.com/en/resources/ui-kits/) in [Figma](https://www.figma.com/), then implemented in development.
 
 ![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/bfe9156d39c5d17dc41e1f98b6ddbb0c1a554fd87d6b4dba.jpg)
 
