@@ -2,6 +2,8 @@
 
 ## **ALIVE NEWS App**
 
+https://news-alive.vercel.app/#/
+
 The application displays news headlines by fetching from newsapi.org.
 
 Displaying Headlines, Searching and Filtering included.
