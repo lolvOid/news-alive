@@ -24,36 +24,36 @@ Displaying Headlines, Searching and Filtering included.
 
 ## **About Project**
 
-This Project is built with [Vite](https://vitejs.dev/).
+This Project is built with [Vite](https://vitejs.dev/) & [Vue.js](https://vuejs.org/).
 
-[Vite](https://vitejs.dev/) is a build tool specifically designed for modern web development with frameworks like Vue.js. It focuses on providing fast, efficient, and optimized development experiences.
+[Vite](https://vitejs.dev/) is a build tool specifically designed for modern web development with frameworks like [Vue.js](https://vuejs.org/). It focuses on providing fast, efficient, and optimized development experiences.
 
-When using Vite with Vue.js, there are several benefits that contribute to an improved development workflow and enhanced performance:
+When using [Vite](https://vitejs.dev/) with [Vue.js](https://vuejs.org/), there are several benefits that contribute to an improved development workflow and enhanced performance:
 
 *   **Fast Development Server**: This allows for a more seamless development experience, with instant hot module replacement (HMR) and quick feedback on code changes.
-*   **Efficient Build Process**: Vite performs on-demand compilation and creates optimized bundles for individual modules. This approach improves build times and reduces the size of the generated output.
-*   **Native ES Modules Support**: Vite takes advantage of native ES module imports, which are supported by modern browsers.
-*   **Plugin Ecosystem**: Vite has a rich ecosystem of plugins that extend its functionality and offer additional features. These plugins can be used to enhance the development workflow, integrate with other tools, optimize assets, and more.
-*   **Developer Experience**: Vite provides an excellent developer experience with features like instant server restarts, optimized HMR, and optimized production builds. It supports Vue Single-File Components (SFCs), TypeScript, CSS preprocessors, and other modern web technologies out of the box.
+*   **Efficient Build Process**: [Vite](https://vitejs.dev/) performs on-demand compilation and creates optimized bundles for individual modules. This approach improves build times and reduces the size of the generated output.
+*   **Native ES Modules Support**: [Vite](https://vitejs.dev/) takes advantage of native ES module imports, which are supported by modern browsers.
+*   **Plugin Ecosystem**: [Vite](https://vitejs.dev/) has a rich ecosystem of plugins that extend its functionality and offer additional features. These plugins can be used to enhance the development workflow, integrate with other tools, optimize assets, and more.
+*   **Developer Experience**: [Vite](https://vitejs.dev/) provides an excellent developer experience with features like instant server restarts, optimized HMR, and optimized production builds. It supports Vue Single-File Components (SFCs), TypeScript, CSS preprocessors, and other modern web technologies out of the box.
 
-Overall, Vite simplifies the development process, improves performance, and offers a streamlined experience when building Vue.js applications. It combines fast development server capabilities, optimized builds, and seamless integration with Vue-specific features to create a highly efficient development environment.
+Overall, [Vite](https://vitejs.dev/) simplifies the development process, improves performance, and offers a streamlined experience when building [Vue.js](https://vuejs.org/) applications. It combines fast development server capabilities, optimized builds, and seamless integration with Vue-specific features to create a highly efficient development environment.
 
 ---
 
 ### Dependencies
 
 *    Lists the required dependencies for the application to run. (dependencies):
-    *   "vue": The Vue.js framework.
+    *   "vue": The [Vue.js](https://vuejs.org/) framework.
     *   "vuetify": A component framework for Vue.js.
-    *   "vue-router": The official router for Vue.js applications.
-    *   "vuex": A state management pattern and library for Vue.js applications.
+    *   "vue-router": The official router for [Vue.js](https://vuejs.org/) applications.
+    *   "vuex": A state management pattern and library for [Vue.js](https://vuejs.org/) applications.
     *   "axios": A popular HTTP client for making API requests.
     *   "moment": A library for parsing, manipulating, and formatting dates and times.
 *    Lists the dependencies required during development. (devDependencies):
     *   "eslint": A pluggable JavaScript linter for code quality.
     *   "prettier": An opinionated code formatter.
     *   "vite": A fast development build tool for modern web applications.
-    *   "vitest": A testing library for Vue.js applications.
+    *   "vitest": A testing library for [Vue.js](https://vuejs.org/) applications.
 
 ## Project Setup
 
@@ -120,7 +120,7 @@ npm run make-clean
 #### Docker Restart Container
 
 ```plaintext
-npm run make-restart                                                                                                                            
+npm run make-restart
 ```
 
 ---
