@@ -138,6 +138,8 @@ By following the Material Design guidelines, the Application's UI conforms to a 
 
 First, UI Wireframe was created with [Vuetify UIKit](https://vuetifyjs.com/en/resources/ui-kits/) in [Figma](https://www.figma.com/), then implemented in development.
 
+![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/bfe9156d39c5d17dc41e1f98b6ddbb0c1a554fd87d6b4dba.jpg)
+
 ---
 
 ## Extra Feautres
@@ -169,7 +171,11 @@ First, UI Wireframe was created with [Vuetify UIKit](https://vuetifyjs.com/en/re
 
 **RESPONSIVE LAYOUT**
 
-![Ipad](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/dae6daf452f474e86d7cdba2608c3ea97d3928ae1efd130a.png)![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/8fc00738eb90f85f9e6c245088c79c7b83e87305a7f9cc85.png)![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/ac5a4cdc1736cf41a59b434a668c29c9c72ac82757e5fc78.png)
+![Ipad](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/dae6daf452f474e86d7cdba2608c3ea97d3928ae1efd130a.png)
+
+![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/8fc00738eb90f85f9e6c245088c79c7b83e87305a7f9cc85.png)
+
+![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/ac5a4cdc1736cf41a59b434a668c29c9c72ac82757e5fc78.png)
 
 Filtering by Sources
 
@@ -191,7 +197,9 @@ Filtering By Country
 
 Searching
 
-![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/b8d4fe7600f18e277a59ab2f58bb8203fce7724cdd6a8b00.png)![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/ec64d672577cb8173a4bae0fbb3906a4779922da0d3a7472.png)
+![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/b8d4fe7600f18e277a59ab2f58bb8203fce7724cdd6a8b00.png)
+
+![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/ec64d672577cb8173a4bae0fbb3906a4779922da0d3a7472.png)
 
 ![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/d6bb7fc7d800645d52390997df07033e29faf4f1e0ab008a.png)
 
@@ -199,7 +207,9 @@ EDIT DETAILS
 
 ![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/72c81ea23a702f785fb302df664aba187108ab16d7f7fa06.png)
 
-![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/9ed7a697bd01d557cbf103a68846d21e745396568d5ab2e1.png)![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/7c79eb1493280413d59ef349eed1bba350dedd78bb1628e3.png)![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/7be0f8e4db0893c00c08a45540dd85483ab432ab427641c3.png)
+![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/9ed7a697bd01d557cbf103a68846d21e745396568d5ab2e1.png)![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/7c79eb1493280413d59ef349eed1bba350dedd78bb1628e3.png)
+
+![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/7be0f8e4db0893c00c08a45540dd85483ab432ab427641c3.png)
 
 Error Handling
 
