@@ -6,9 +6,19 @@ import router from './router'
 import vuetify from './plugins/vuetify'
 import { loadFonts } from './plugins/webfontloader'
 import store from './store'
+import VueGtagPlugin from 'vue-gtag'
 
 const intervalMS = 60 * 60 * 1000
 
+
+const gtagOpts = {
+  config: {
+    id: "G-90STNM4SKT",
+    params: {
+      anonymize_ip: true,
+    },
+  },
+};
 registerSW({
   onRegisteredSW(swUrl, r) {
     r &&
@@ -32,7 +42,7 @@ registerSW({
 
 // Create the Vue application and configure plugins
 const app = createApp(App).use(FlagIcon).use(router).use(store).use(vuetify)
-
+app.use(VueGtagPlugin, gtagOpts);
 // Load fonts
 loadFonts()
 

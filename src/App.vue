@@ -49,6 +49,7 @@ import Spinner from './components/Spinner.vue'
 import Error from './components/Error.vue'
 import NavigationDrawer from './components/NavigationDrawer.vue'
 import BottomTabNavigation from './components/BottomTabNavigation.vue'
+import { event } from 'vue-gtag'
 
 export default {
   name: 'App',
@@ -94,6 +95,7 @@ export default {
       return this.fetchHeadlinesWrong()
     },
     onCategorySelected(val) {
+
       this.category = val
       this.updateURLQuery()
     },
@@ -119,6 +121,7 @@ export default {
       this.updateURLQuery()
     },
     onSearch(val) {
+     
       this.queryText = val
       this.updateURLQuery()
     },
@@ -143,6 +146,7 @@ export default {
   },
 
   created() {
+    
     const defaultQuery = {}
     // if (!this.$route.query.country || !this.$route.query.category) {
     //   this.$router.replace({ name: 'home', query: defaultQuery });
@@ -160,6 +164,16 @@ export default {
     },
     $route: {
       handler(route) {
+        if(route.name==="home"){
+          event('home', { method: 'Google' })
+
+        }else if(route.name==="home.search"){
+          event('search', { method: 'Google' })
+        }else if(route.name==="home.discover"){
+          event('discover', { method: 'Google' })
+        }else if(route.name==="history"){
+          event('history', { method: 'Google' })
+        }
         this.searchHeadlines(route.query)
       },
       immediate: true,

@@ -1,5 +1,8 @@
 {
   "name": "news-alive",
+  "author": {
+    "name": "freddie"
+  },
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,7 +14,7 @@
     "format": "prettier --write src/",
     "lint:fix": "eslint src --ext .js,.cjs --fix",
     "preview": "vite preview",
-    "make:start": "cd workflows && make first",
+    "make:start": "cd workflows && make install",
     "make:stop": "cd workflows && make stop",
     "make:clean": "cd workflows && make clean",
     "make:restart": "cd workflows && make restart",
@@ -33,6 +36,7 @@
     "vite": "^4.3.4",
     "vue": "^3.2.47",
     "vue-flag-icon": "^2.1.0",
+    "vue-gtag": "^2.0.1",
     "vue-router": "^4.1.6",
     "vuetify": "^3.2.5",
     "vuex": "^4.1.0",
