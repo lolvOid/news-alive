@@ -11,9 +11,10 @@ import VueGtagPlugin from 'vue-gtag'
 const intervalMS = 60 * 60 * 1000
 
 
+
 const gtagOpts = {
   config: {
-    id: "G-90STNM4SKT",
+    id:import.meta.env.VITE_GTAG,
     params: {
       anonymize_ip: true,
     },
